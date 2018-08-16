@@ -1,6 +1,6 @@
 # childhood
 
-## Overview
+**Overview**
 my submission for the 2018 [js13k](http://js13kgames.com) games.
 
 * [Competition Rules](http://js13kgames.com/#rules)
