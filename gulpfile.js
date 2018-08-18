@@ -69,7 +69,8 @@ const commonTasks = [
   'sass',
   'js',
   'html',
-  'purgecss'
+  'purgecss',
+  'zip'
 ];
 
 // tasks to run for local dev builds only
@@ -98,17 +99,17 @@ gulp.task('watch', [
 
 /* WATCH :: JS */
 gulp.task('js:watch', () => {
-  gulp.watch(devPaths.js_all, ['js', 'purgecss']);
+  gulp.watch(devPaths.js_all, ['js', 'purgecss', 'zip']);
 });
 
 /* WATCH :: SASS */
 gulp.task('sass:watch', () => {
-  gulp.watch(devPaths.scss_watchAll, ['sass', 'purgecss']);
+  gulp.watch(devPaths.scss_watchAll, ['sass', 'purgecss', 'zip']);
 });
 
 /* WATCH :: HTML */
 gulp.task('html:watch', () => {
-  gulp.watch(devPaths.html, ['html', 'purgecss']);
+  gulp.watch(devPaths.html, ['html', 'purgecss', 'zip']);
 });
 
 /******************************************************************************\
@@ -263,6 +264,22 @@ gulp.task('compileHTML', () => {
       }).on('error', pingError)
     )
     .pipe(gulp.dest('./' + distDir));
+});
+
+/******************************************************************************\
+ * ZIP AND FILESIZE CHECK
+\******************************************************************************/
+gulp.task('zip', () => {
+  const thirteenKb = 13 * 1024;
+
+  // gulp.src('zip', { read: false }).pipe(clean());
+
+  return gulp.src(`./${distDir}/**`)
+    .pipe(zip('childhood.zip'))
+    .pipe(gulp.dest('zip'))
+    .pipe(checkFileSize({
+      fileSizeLimit: thirteenKb
+    }));
 });
 
 /******************************************************************************\
