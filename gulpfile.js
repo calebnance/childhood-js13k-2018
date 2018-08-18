@@ -1,13 +1,15 @@
+const gulp = require('gulp');
+
 // gulp all the things
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('babelify');
 const browserify = require('browserify');
 const buffer = require('gulp-buffer');
+const checkFileSize = require('gulp-check-filesize');
 const clean = require('gulp-clean');
 const cleanCSS = require('gulp-clean-css');
 const clear = require('clear');
 const concat = require('gulp-concat');
-const gulp = require('gulp');
 const htmlmin = require('gulp-htmlmin');
 const htmlreplace = require('gulp-html-replace');
 const notifier = require('node-notifier');
@@ -22,6 +24,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const stripDebug = require('gulp-strip-debug');
 const tap = require('gulp-tap');
 const uglify = require('gulp-uglify');
+const zip = require('gulp-zip');
 
 // grab the configuration file
 const config = require('./gulp-config.json');
