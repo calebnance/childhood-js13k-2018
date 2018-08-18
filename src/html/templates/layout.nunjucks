@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "partials/head.nunjucks" %}
+  <body>
+    {# setting page specific content #}
+    {% block content %}
+    {% endblock %}
+    <!-- build:js -->
+      <!-- do not remove this build tag -->
+    <!-- endbuild -->
+  </body>
+</html>

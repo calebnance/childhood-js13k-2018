@@ -1,0 +1,7 @@
+{# index page #}
+{% extends "layout.nunjucks" %}
+
+{# setting page specific content #}
+{% block content %}
+  hello world
+{% endblock %}

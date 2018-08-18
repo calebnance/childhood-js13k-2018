@@ -1,0 +1,29 @@
+// breakpoint viewport sizes and media queries.
+// copied from:: https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_breakpoints.scss
+/////////////////////////////////////////////
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// media query up
+/////////////////////////////////////////////
+@mixin media($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// opacity
+/////////////////////////////////////////////
+@mixin opacity($value) {
+  $ieVal: $value * 100;
+
+  filter: alpha(opacity=$ieVal);
+  opacity: $value;
+}

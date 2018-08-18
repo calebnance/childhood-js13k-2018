@@ -1,0 +1,45 @@
+/////////////////////////////////////////////
+// animation
+// https://github.com/daneden/animate.css
+/////////////////////////////////////////////
+
+.anime {
+  animation-duration: $animationDur;
+  animation-fill-mode: both;
+}
+
+// animation delays from 100ms to 2400ms
+/////////////////////////////////////////////
+@for $i from 1 to 25 {
+  .delay-#{$i * 100}ms { animation-delay: $i * 100ms; }
+}
+
+// fade in
+/////////////////////////////////////////////
+@keyframes fadeIn {
+  from {
+    @include opacity(0);
+  }
+
+  to {
+    @include opacity(1);
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+// fade out
+/////////////////////////////////////////////
+@keyframes fadeOut {
+  from {
+    @include opacity(1);
+  }
+
+  to {
+    @include opacity(0);
+  }
+}
+.fadeOut {
+  animation-name: fadeOut;
+}
