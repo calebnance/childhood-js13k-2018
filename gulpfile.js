@@ -272,7 +272,7 @@ gulp.task('compileHTML', () => {
 gulp.task('zip', () => {
   const thirteenKb = 13 * 1024;
 
-  // gulp.src('zip', { read: false }).pipe(clean());
+  gulp.src('zip', { read: false }).pipe(clean());
 
   return gulp.src(`./${distDir}/**`)
     .pipe(zip('childhood.zip'))
